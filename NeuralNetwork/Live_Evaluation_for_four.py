@@ -80,7 +80,7 @@ def handle_datas(q_data_save,q_data_print):
             break
 def server():
     global server_running
-    host = '172.20.10.3'  
+    host = '172.20.10.3'  ### Replace with your device's IP
     port = 8080  
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

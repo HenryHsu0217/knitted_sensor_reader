@@ -33,8 +33,8 @@ class CustomDataset(Dataset):
 
  # main training loop
 if __name__ == '__main__':
-    dataset = CustomDataset('../datas/Merged/3x10.npz') # Import the data
-    data_loader = DataLoader(dataset, batch_size=32, shuffle=True) # Setting batch size, shiffle
+    dataset = CustomDataset('../datas/Merged/3x10.npz') # Replace it with your merged data
+    data_loader = DataLoader(dataset, batch_size=32, shuffle=True) 
     model = NeuralNetwork()
     criterion = torch.nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)

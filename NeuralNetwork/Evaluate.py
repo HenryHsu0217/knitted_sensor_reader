@@ -8,8 +8,8 @@ import numpy as np
 import random
 if __name__ == '__main__':
     model=NeuralNetwork()
-    dataset=CustomDataset('../datas/Merged/3x10.npz')
-    model.load_state_dict(torch.load('Trained_models/model_1.pth'))
+    dataset=CustomDataset('../datas/Merged/3x10.npz') # Replace with your data
+    model.load_state_dict(torch.load('Trained_models/model_1.pth')) # Replace with your model
     model.eval()
     evaluate_time=1000
     correct=0

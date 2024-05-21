@@ -9,15 +9,17 @@ import numpy as np
 global user_input
 global server_running
 global file
+global angle
 user_input="HI"
 server_running = True
 file=""
-
+angle=""
  # Function for handling client(sensor)
 def handle_client(client_socket):
     data_to_save=[] # A list that will store the complete data
     global user_input
     global file
+    global angle
     try:
         while server_running:
             try:
@@ -30,11 +32,13 @@ def handle_client(client_socket):
                         print(f"Logging: {decoded_data}")
                     splited=decoded_data.split(" ") # Splits the data with space, so the "splited" variable are now ["data_count", "analog_reading"]
                     if len(splited)==2: # Skip datas that have more then one reading due to that the server may not handle the incoming data as fast as it revceived, causing multiple data in one input
-                        data_to_save.append((splited[1],60)) # Modify the real angle value here
+                        data_to_save.append((splited[1],int(angle))) # Modify the real angle value here
                 elif user_input=="log": # If user input is log then save the data
                     data_values, true_values = zip(*data_to_save)
                     np.savez(file, data_values=data_values, true_values=true_values)
                     user_input="Hi"
+                    angle="reset"
+                    data_to_save=[]
                 elif user_input=="e": # If user input is "e" exit and close the server
                     client_socket.close()
                     break
@@ -51,11 +55,23 @@ def handle_user():
     global user_input
     global server_running
     global file
+    global angle
     print("starting user thread")
     file=input("Please input the file location for the data: ") # Enter the file location that you want to save your data
+    angle=input("Please input angle: ")
     while True:
         if file!="" and user_input=="log":
             file=input("Please input the file location for the data: ")
+            if file=="e":
+                user_input="e"
+                server_running = False
+                break
+        if angle!="" and user_input=="Hi":
+            angle=input("Please input the angle: ")
+            if angle=="e":
+                user_input="e"
+                server_running = False
+                break
         user_input=input()
         if user_input == "e":
             print("Shutting down server...")
@@ -65,7 +81,7 @@ def handle_user():
  # Main funciton for setting up and runs the server
 def server():
     global server_running
-    host = '172.20.10.3'  # Change the IP address to your server address
+    host = '172.20.10.3'  ### Replace with your device's IP
     port = 8080  # Port to listen on
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

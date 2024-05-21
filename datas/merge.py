@@ -24,7 +24,7 @@ def get_all_filenames(folder_path):
             filenames.append(f"{folder_path}/{filename}")
 
     return filenames
-file_paths = get_all_filenames('10x30') # Enter the directory of the data
+file_paths = get_all_filenames('Example_ data_ wth_10x30_sensor') # Replace the directory of the data
 print(file_paths)
 merged_data_values, merged_true_values = merge_npz_files(file_paths)
 np.savez("Merged/3x10.npz", data_values=merged_data_values, true_values=merged_true_values)

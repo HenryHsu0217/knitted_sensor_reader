@@ -15,5 +15,5 @@ def print_npz_contents(file_path):
         print("Data:")
         print(array_data)
         print()  
-file_path = "./Merged/3x10.npz" # Enter the file you want to check 
+file_path = "test.npz" # Enter the file you want to check 
 print_npz_contents(file_path)
