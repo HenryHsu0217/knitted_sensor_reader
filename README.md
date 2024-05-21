@@ -24,7 +24,7 @@ This project contains the code and hardware setup for collecting data from knitt
 ## Hardware Setup
 To set up the hardware for this project, you will need:
 - Knitted sensors
-![Alt text](images/IMG_1886.HEIC)
+![Alt text](images/IMG_1886.jpg?raw=true)
 - Seeed Xiao ESP32C with custom PCB
 - Connection wires
 - Batteries
