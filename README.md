@@ -45,7 +45,7 @@ To set up the hardware for this project, you will need:
 #### Robot arm setup and control
 To setup and control the robot arm, please first go to https://docs.arduino.cc/retired/getting-started-guides/Braccio/ to check the essential library for the robot, after downloading the library, upload `Robot_arm.cpp` to the braod controling the arm. After uploading, you can control the robot arm to certain angle with serial input. Before entering the angle, please keep in mind that we are only controlling the ELBOW of the robot, and due to the setting of the arm, the arm will be at 0 degree with a setting of 45, so when entering the desired angle remember to add 45 to it. For example if you want the ELBOW to got to 60 degree, please enter 105 instead.
   
-Attach the knitted sensor to the robot arm as shown to finish the robot arm setup.
+Attach the knitted sensor to the robot arm with pib needle to finish the robot arm setup.
 ### WiFi setup
 The device that you are running the code with will be the server for the system, and make sure you are connected to private network, pubic network may cuase problem in connection.  
 
