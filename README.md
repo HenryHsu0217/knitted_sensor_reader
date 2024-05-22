@@ -52,6 +52,8 @@ The device that you are running the code with will be the server for the system,
 After your device is connected to a private netwrok and get your device's IP address update the SSID, password, and host ID accroding to your device in the `WiFi_Client.cpp` file for the Xiao Seeed broad. And also remember to update the host IP in `server_for_one.py`, `server_for_four.py`, `Live_Evalution_for_one.py`, and `live_Evalution_for_four.py` before running them with your device's IP.
 #### Xiao Seeed setup
 Upload `WiFi_Client.cpp` to the broad with the WiFi set correctly, insert the wires from the knitted sensor into the terminal and screw it tight. Plug in the battery and after the server is running press reset button on the broad to connect to the server.
+  
+After all the setups, you are ready to run the server for data collection, you can check the finished setup image of the robot arm in the `images` directory.
 ## Usage
 ### Data collection 
 #### Data collection for one sensor
