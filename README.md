@@ -6,12 +6,12 @@ This project contains the code and hardware setup for collecting data from knitt
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
+- [Installation](#installation)
 - [Setup](#setup)
     - [Hard ware setup](#hard-ware-setup)
         - [Robot arm setup and control](#robot-arm-setup-and-control)
         - [Xiao Seeed setup](#xiao-seeed-setup)
     - [WiFi setup](#wifi-setup)
-- [Installation](#installation)
 - [Usage](#usage)
   - [Data Collection](#data-collection)
     - [Data Collection for one sensor](#data-collection-for-one-sensor)
@@ -24,24 +24,6 @@ This project contains the code and hardware setup for collecting data from knitt
 - Simple examples with 3x10 size sensor data
 - Trained neural network model for angle prediction
 - Live evaluation for one or four sensors simultaneously
-
-## Setup
-### Hard ware setup
-To set up the hardware for this project, you will need:  
-- Knitted sensors
-- Xiao Seeed ESP32C with custom PCB
-- Connection wires
-- Batteries
-- Arduino Tinkerkit robot arm with sleeve and Ardino Uno
-#### Robot arm setup and control
-
-#### Xiao Seeed setup
-
-### WiFi setup
-The device that you are running the code with will be the server for the system, and make sure you are connected to private network, pubic network may cuase problem in connection.  
-
-After your device is connected to a private netwrok and get your device's IP address update the SSID, password, and host ID accroding to your device in the `WiFi_Client.cpp` file for the Xiao Seeed broad. And also remember to update the host IP in `server_for_one.py`, `server_for_four.py`, `Live_Evalution_for_one.py`, and `live_Evalution_for_four.py` before running them with your device's IP.
-
 ## Installation
 1. Clone the repository to your local machine:
    ```sh
@@ -52,6 +34,24 @@ After your device is connected to a private netwrok and get your device's IP add
     ```sh
     pip install -r requirements.txt
     ```
+## Setup
+### Hard ware setup
+To set up the hardware for this project, you will need:  
+- Knitted sensors
+- Xiao Seeed ESP32C with custom PCB
+- Connection wires
+- Batteries
+- Arduino Tinkerkit robot arm with sleeve and Ardino Uno
+#### Robot arm setup and control
+To setup and control the robot arm, please first go to https://docs.arduino.cc/retired/getting-started-guides/Braccio/ to check the essential library for the robot, after downloading the library, upload `Robot_arm.cpp` to the braod controling the arm. After uploading, you can control the robot arm to certain angle with serial input. Before entering the angle, please keep in mind that we are only controlling the ELBOW of the robot, and due to the setting of the arm, the arm will be at 0 degree with a setting of 45, so when entering the desired angle remember to add 45 to it. For example if you want the ELBOW to got to 60 degree, please enter 105 instead.
+  
+Attach the knitted sensor to the robot arm as shown to finish the robot arm setup.
+### WiFi setup
+The device that you are running the code with will be the server for the system, and make sure you are connected to private network, pubic network may cuase problem in connection.  
+
+After your device is connected to a private netwrok and get your device's IP address update the SSID, password, and host ID accroding to your device in the `WiFi_Client.cpp` file for the Xiao Seeed broad. And also remember to update the host IP in `server_for_one.py`, `server_for_four.py`, `Live_Evalution_for_one.py`, and `live_Evalution_for_four.py` before running them with your device's IP.
+#### Xiao Seeed setup
+Upload `WiFi_Client.cpp` to the broad with the WiFi set correctly, insert the wires from the knitted sensor into the terminal and screw it tight. Plug in the battery and after the server is running press reset button on the broad to connect to the server.
 ## Usage
 ### Data collection 
 #### Data collection for one sensor
