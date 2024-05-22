@@ -53,7 +53,7 @@ After your device is connected to a private netwrok and get your device's IP add
 #### Xiao Seeed setup
 Upload `WiFi_Client.cpp` to the broad with the WiFi set correctly, insert the wires from the knitted sensor into the terminal and screw it tight. Plug in the battery and after the server is running press reset button on the broad to connect to the server.
   
-After all the setups, you are ready to run the server for data collection, you can check the finished setup image of the robot arm in the `images` directory.
+After all the setups, you are ready to run the server for data collection, you can check the finished setup image of the robot arm in the `images` directory. Furthermore you can find files for the PCB in the `PCB` directory, you can open it with KiCad.
 ## Usage
 ### Data collection 
 #### Data collection for one sensor
