@@ -2,8 +2,8 @@
 Evaluates the trained model with selected data set
 """
 import torch
-from NeuralNetwork.Network_for_one import NeuralNetwork
-from NeuralNetwork.Train_for_one import CustomDataset
+from Network_for_one import NeuralNetwork
+from Train_for_one import CustomDataset
 import numpy as np
 import random
 if __name__ == '__main__':

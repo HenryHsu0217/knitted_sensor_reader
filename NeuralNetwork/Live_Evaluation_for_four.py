@@ -4,7 +4,6 @@ private wifi(so public wifi such as aalto open won't work).
 """
 import socket
 import threading
-import numpy as np
 import queue
 import sys
 from Network_for_one import NeuralNetwork

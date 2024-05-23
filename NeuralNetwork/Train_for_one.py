@@ -2,7 +2,7 @@
 Training models for predicting the angle 
 """
 import numpy as np
-from NeuralNetwork.Network_for_one import NeuralNetwork
+from Network_for_one import NeuralNetwork
 import torch
 from torch.utils.data import Dataset, DataLoader
 import torch.optim as optim
